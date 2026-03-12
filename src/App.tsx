@@ -8,11 +8,12 @@ import linkedinLogo from "./assets/linkedin.png";
 import githubLogo from "./assets/github.png";
 import emailLogo from "./assets/mail.png";
 import headshot from "./assets/portrait.jpg";
+import arrow from "./assets/arrow.png";
 
 function App() {
 
   return (
-    <div className="min-h-screen bg-[#191C40] text-white">
+    <div className="min-h-screen bg-[#191C40] text-white overflow-x-hidden mx-60">
       <div className="fixed top-0 left-0 w-full bg-[#B29758] shadow-md z-50">
         <div className="mx-auto flex h-16 max-w-screen items-center justify-between px-8 text-[#404472]">
           <a href="#landing"><h3 className="text-xl font-semibold">Farhan Uddin</h3></a>
@@ -24,10 +25,10 @@ function App() {
           </div>
         </div>
       </div>
-      <div id="landing" className="min-h-screen flex items-center px-10 py-20">
+      <div id="landing" className="h-[90vh] flex items-center px-10">
         <div className="mx-auto flex w-full max-w-screen items-center justify-between">
 
-          <div className="max-w-xl">
+          <div className="max-w-xl mx-20">
             <h1 className="text-6xl font-bold text-[#B29758]">Farhan Uddin</h1>
             <h3 className="text-2xl font-semibold text-white mt-2">
               Computer Science @ Virginia Tech
@@ -37,23 +38,29 @@ function App() {
               Currently a Junior, interested in full stack development and data science/ML!
             </p>
 
-            <div className="flex gap-6 pt-4">
+            <div className="flex justify-center mr-10 gap-6 pt-4">
               <img src={linkedinLogo} className="h-10 w-10 rounded-md p-2 transition hover:scale-110 cursor-pointer" />
               <img src={githubLogo} className="h-10 w-10 rounded-md p-2 transition hover:scale-110 cursor-pointer" />
               <img src={emailLogo} className="h-10 w-10 rounded-md p-2 transition hover:scale-110 cursor-pointer" />
             </div>
+
+
           </div>
 
           <div className="flex justify-center">
             <img
               src={headshot}
-              className="h-80 w-80 rounded-full object-cover shadow-xl"
+              className="h-90 w-90 rounded-full object-cover shadow-xl"
             />
           </div>
 
         </div>
+        
       </div>
-      <div id="experience" className="py-24">
+      <div className="flex justify-center animate-bounce">
+          <img src={arrow} className="h-10 w-10" />
+        </div>
+      <div id="experience" className="py-12">
         <Experience />
       </div>
       <div id="projects">
