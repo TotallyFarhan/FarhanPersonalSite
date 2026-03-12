@@ -55,37 +55,62 @@ function Projects() {
     ]
 
     return (
-        <>
-            {
-                projects.map((project: Project) => {
-                    return (
-                        <div>
-                            <img src={project.image} />
-                            <h3>{project.name}</h3>
-                            <span>{project.status}</span>
-                            <p>{project.description}</p>
-                            {
-                                project.technologies.map((technology: string) => {
-                                    return (
-                                        <div>
-                                            <span>{technology}</span>
-                                        </div>
-                                    );
-                                })
-                            }
-                            <a href={project.github} target="_blank" rel="noopener noreferrer"><button>Source</button></a>
-                            {
-                                project.link.length > 0 && (
-                                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                                        <button>Link</button>
-                                    </a>
-                                )
-                            }
-                        </div>
-                    );
-                })
-            }
-        </>
+        <div className="py-24 px-6">
+            <h1 className="text-4xl font-bold text-[#B29758] text-center mb-16">Projects</h1>
+            <div className="relative mx-auto border border-[#B29758] rounded-3xl p-10 pr-10">
+                
+                <div className="grid gap-12 md:grid-cols-2 justify-items-center">
+                    {
+                        projects.map((project: Project) => {
+                            return (
+                                <div key={project.name}
+                                    className="border border-[#B29758] rounded-3xl p-8 flex flex-col items-center text-center hover:scale-[1.02] transition">
+                                    <img src={project.image} className="rounded-xl mb-6 h-40 object-cover" />
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <h3 className="text-3xl font-bold text-white">{project.name}</h3>
+
+                                        <span className={`px-3 py-1 rounded-md text-sm font-medium 
+                                    ${project.status === "Completed"
+                                                ? "bg-teal-500/30 text-teal-200"
+                                                : "bg-red-500/30 text-red-200"
+                                            }`}
+                                        >
+                                            {project.status}
+                                        </span>
+                                    </div>
+
+                                    <p className="text-gray-300 mb-6">{project.description}</p>
+                                    <div className="flex flex-wrap justify-center gap-2 mb-6">
+                                        {
+                                            project.technologies.map((technology: string) => {
+                                                return (
+                                                    <div>
+                                                        <span key={technology}
+                                                            className="bg-[#B29758] text-white px-3 py-1 rounded-md text-sm">{technology}</span>
+                                                    </div>
+                                                );
+                                            })
+                                        }
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <a href={project.github} target="_blank" rel="noopener noreferrer">
+                                            <button className="bg-[#717CA3] text-white px-6 py-2 rounded-md hover:bg-gray-400 transition">Source</button>
+                                        </a>
+                                        {
+                                            project.link.length > 0 && (
+                                                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                                                    <button className="bg-[#717CA3] text-white px-6 py-2 rounded-md hover:bg-gray-400 transition">Link</button>
+                                                </a>
+                                            )
+                                        }
+                                    </div>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+        </div>
     )
 }
 

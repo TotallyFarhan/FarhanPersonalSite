@@ -167,37 +167,48 @@ function Experience() {
 
     return (
         <>
-            {
-                workExperiences.map((exp: WorkExperience) => {
-                    return (
-                        <div>
-                            <h3>{exp.company}</h3>
-                            <img src={exp.image} />
+            <h1 className="flex justify-center text-xl font-bold text-[#B29758] p-15">Work Experience</h1>
+            <div className="experience-scroll relative max-w-5xl mx-auto border border-[#B29758] rounded-3xl p-10 h-175 overflow-y-auto pr-10">
+                <div className="relative p-1">
+                    <div className="absolute left-16 top-0 bottom-0 w-0.5 bg-[#B29758]"></div>
 
-                            {
-                                exp.roles.map((role: Role) => {
-                                    return (
-                                        <div>
-                                            <h4>{role.position}</h4>
-                                            <h4>{role.date}</h4>
-                                            <ul>
-                                                {
-                                                    role.description.map((bullet: string) => {
-                                                        return (
-                                                            <li>{bullet}</li>
-                                                        );
-                                                    })
-                                                }
-                                            </ul>
-                                        </div>
-                                    );
-                                })
-                            }
-
-                        </div>
-                    );
-                })
-            }
+                    {
+                        workExperiences.map((exp: WorkExperience) => {
+                            return (
+                                <div className="grid grid-cols-[120px_1fr] gap-6 py-3">
+                                    <div className="flex justify-center">
+                                        <img src={exp.image} className="w-20 h-20 rounded-full object-cover bg-white z-10 shadow-lg" />
+                                    </div>
+                                    <div>
+                                        <h3 className="font-semibold text-3xl">{exp.company}</h3>
+                                        {
+                                            exp.roles.map((role: Role) => {
+                                                return (
+                                                    <div className="mt-2">
+                                                        <div className="flex justify-between text-gray-300">
+                                                            <h4 className="font-medium text-xl">{role.position}</h4>
+                                                            <span className="italic text-lg">{role.date}</span>
+                                                        </div>
+                                                        <ul className="list-disc ml-6 mt-1 text-sm">
+                                                            {
+                                                                role.description.map((bullet: string) => {
+                                                                    return (
+                                                                        <li className="p-0.5 text-md">{bullet}</li>
+                                                                    );
+                                                                })
+                                                            }
+                                                        </ul>
+                                                    </div>
+                                                );
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                            );
+                        })
+                    }
+                </div>
+            </div>
         </>
     )
 }
