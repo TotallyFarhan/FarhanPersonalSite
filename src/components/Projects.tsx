@@ -59,12 +59,12 @@ function Projects() {
             <h1 className="text-4xl font-bold text-[#B29758] text-center">Projects</h1>
             <div className="relative mx-auto rounded-3xl p-10 pr-10 max-w-5xl">
                 
-                <div className="grid gap-12 md:grid-cols-2 justify-items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center">
                     {
                         projects.map((project: Project) => {
                             return (
                                 <div key={project.name}
-                                    className="border border-[#B29758] rounded-3xl p-8 w-100 flex flex-col items-center text-center hover:scale-[1.02] transition">
+                                    className="border border-[#B29758] rounded-3xl p-8 w-full max-w-md flex flex-col items-center text-center hover:scale-[1.02] transition">
                                     <img src={project.image} className="rounded-xl mb-6 w-80 h-40 object-cover" />
                                     <div className="flex items-center gap-3 mb-3">
                                         <h3 className="text-3xl font-bold text-white">{project.name}</h3>

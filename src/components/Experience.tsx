@@ -168,7 +168,7 @@ function Experience() {
     return (
         <>
             <h1 className="flex justify-center text-xl font-bold text-[#B29758] pt-15 pb-10">Work Experience</h1>
-            <div className="experience-scroll relative max-w-5xl mx-auto border border-[#B29758] rounded-3xl p-10 h-175 overflow-y-auto pr-10">
+            <div className="relative max-w-5xl mx-auto border border-[#B29758] rounded-3xl p-6 md:p-10 max-h-[700px] overflow-y-auto">
                 <div className="relative p-1">
                     <div className="absolute left-16 top-0 bottom-0 w-0.5 bg-[#B29758]"></div>
 
